@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Ago-2021 às 03:33
+-- Tempo de geração: 26-Ago-2021 às 22:49
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 7.4.13
 
@@ -29,12 +29,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `products` (
   `id` int(10) UNSIGNED NOT NULL,
-  `cod` int(30) DEFAULT 0,
+  `cod` varchar(50) NOT NULL,
   `name` varchar(100) NOT NULL,
   `price` float NOT NULL DEFAULT 0,
   `quantity` float NOT NULL DEFAULT 0,
   `min_quantity` float NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `products`
+--
+
+INSERT INTO `products` (`id`, `cod`, `name`, `price`, `quantity`, `min_quantity`) VALUES
+(1, '07890012554', 'Produto de teste', 150, 18, 12),
+(2, '21474555', 'Produto 2', 123, 18, 20);
 
 -- --------------------------------------------------------
 
@@ -54,7 +62,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_number`, `user_pass`, `user_token`) VALUES
-(1, 123, '698dc19d489c4e4db73e28a713eab07b', NULL);
+(1, 123, '698dc19d489c4e4db73e28a713eab07b', '62402e3e6716cf1d1e1aa6a1b3060307');
 
 --
 -- Índices para tabelas despejadas
@@ -80,7 +88,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de tabela `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `users`

@@ -1,4 +1,10 @@
 <h3>LOGIN</h3>
+<!-- Se tiver mensagem de erro -->
+<div class="error">
+  <?php if(!empty($msg)): ?>
+    <h2><?php echo $msg; ?></h2>
+  <?php endif; ?>
+</div>
 <div class="container">
   <div class="form">
     <form method="POST">
@@ -11,9 +17,4 @@
       <input type="submit" value="Entrar" />  
     </form>
   </div>
-    
-    <!-- Se tiver mensagem de erro -->
-    <?php if(!empty($msg)): ?>
-      <h2><?php echo $msg; ?></h2>
-    <?php endif; ?>
 </div>
