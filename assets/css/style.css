@@ -1,0 +1,24 @@
+body {
+  background-color: #DDD;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h3 {
+  text-align: center;
+}
+.form {
+  padding: 30px;
+  background-color: rgb(235, 233, 236);
+  width: 250px;
+  border: 1px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.form label {
+  width: 100%;
+}
