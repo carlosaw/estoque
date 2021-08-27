@@ -68,7 +68,22 @@ class homeController extends Controller {
 
     $data['info'] = $p->getProduct($id);//Pega os dados do produto
 
-    $this->loadTemplate('edit', $data);
+    $this->loadTemplate('edit', $data); 
+  }
+
+  public function addBuy() {
+    $data = array('msg' => '');
+    //print_r($_SESSION['token']);// Pega token do usuario logado
+    $p = new Products();// Puxa model de produtos
+
+    if(!empty($_POST['cod'])) {
+      $cod = $_POST['cod'];
+      $quantity = $_POST['quantity'];
+
+      $p->buyProduct($cod, $quantity);
+      $data['msg'] = 'Venda efetuada com Sucesso!'; 
+    }
     
+    $this->loadTemplate('addBuy', $data);
   }
 }

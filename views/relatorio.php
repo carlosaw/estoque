@@ -1,4 +1,4 @@
-<h1>Relatório</h1>
+<h1>Produtos abaixo do Mínimo</h1>
 <table border="1" width="500">
   <tr>
     <th>Nome do Produto</th>
@@ -15,6 +15,7 @@
     </tr>
   <?php endforeach; ?>
 </table>
+<!--Prepara pra Impressão-->
 <script type="text/javascript">
   window.print();
 </script>

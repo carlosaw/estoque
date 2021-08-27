@@ -1,7 +1,7 @@
 <h3>Adicionar Produto</h3>
 
 <form method="POST">
-<label>
+  <label>
     Código de Barras:<br/>
     <input type="text" name="cod" required /><br/><br/>
   </label>

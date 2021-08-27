@@ -1,5 +1,7 @@
 <a href="<?php echo BASE_URL; ?>home/add">Adicionar Produto</a><br/><br/>
 
+<a href="<?php echo BASE_URL; ?>home/addBuy">Adicionar Venda</a><br/><br/>
+
 <a href="<?php echo BASE_URL; ?>relatorio">Relatório</a><br/><br/>
 
 <fieldset><!--Campo de Busca-->
