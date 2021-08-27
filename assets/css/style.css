@@ -1,6 +1,10 @@
 body {
-  background-color: #DDD;
+  background-color: #000;
+  color:#FFF;
   font-family: Arial, Helvetica, sans-serif;
+}
+a {
+  color: #FFF;
 }
 .container {
   display: flex;

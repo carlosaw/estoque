@@ -86,4 +86,5 @@ class homeController extends Controller {
     
     $this->loadTemplate('addBuy', $data);
   }
+  
 }
