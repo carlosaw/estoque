@@ -86,19 +86,4 @@ class Products extends Model {
     }
     return $array;
   }
-
-  public function buyProduct($cod, $quantity) {
-    if($this->verifyProduct($cod)) {
-
-      $sql = "INSERT INTO history (cod, quantity)
-              VALUES(:cod, :quantity)";
-      $sql = $this->db->prepare($sql);
-      $sql->bindValue(':cod', $cod);
-      $sql->bindValue(':quantity', $quantity);
-      $sql->execute();
-
-    } else {
-      return false;
-    }
-  }
 }

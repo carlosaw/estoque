@@ -1,7 +1,5 @@
 <a href="<?php echo BASE_URL; ?>home/add">Adicionar Produto</a><br/><br/>
 
-<a href="<?php echo BASE_URL; ?>home/addBuy">Adicionar Venda</a><br/><br/>
-
 <a href="<?php echo BASE_URL; ?>relatorio">Relatório</a><br/><br/>
 
 <fieldset><!--Campo de Busca-->
@@ -25,7 +23,6 @@
       <td>R$ <?php echo number_format($item['price'], 2, ',', '.'); ?></td>
       <td><?php echo $item['quantity']; ?></td>
       <td style="text-align:center;">
-        <a href="<?php echo BASE_URL; ?>home/buy/<?php echo $item['id']; ?>">Comprar</a>
         <a href="<?php echo BASE_URL; ?>home/edit/<?php echo $item['id']; ?>">Editar</a>
       </td>
     </tr>
