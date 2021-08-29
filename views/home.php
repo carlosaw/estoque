@@ -1,14 +1,10 @@
-<a href="<?php echo BASE_URL; ?>home/add">Adicionar Produto</a><br/><br/>
-
-<a href="<?php echo BASE_URL; ?>relatorio">Relatório</a><br/><br/>
-
 <fieldset><!--Campo de Busca-->
   <form method="GET">
     <input type="text" id="busca" name="busca" value="<?php echo (!empty($_GET['busca']))?$_GET['busca'] : ''; ?>" placeholder="Digite o Código de barras ou o Nome do produto" style="width:100%;height:30px;font-size:18px;" />
   </form>
 </fieldset><br/><br/>
 
-<table border="1" width="100%">
+<table border="0" width="100%">
   <tr>
     <th>Cód.</th>
     <th>Nome</th>

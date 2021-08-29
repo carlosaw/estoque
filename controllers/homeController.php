@@ -14,7 +14,13 @@ class homeController extends Controller {
   }
 
   public function index() {
-    $data = array();
+    $data = array(
+      'menu' => array(
+        BASE_URL.'home/add' => 'Adicionar Produto',
+        BASE_URL.'relatorio' => 'Relatório',
+        BASE_URL.'login/sair' => 'Sair'
+      )
+    );
     //print_r($_SESSION['token']);// Pega token do usuario logado
     $p = new Products();// Puxa model de produtos
 
@@ -29,7 +35,11 @@ class homeController extends Controller {
   }
 
   public function add() {
-    $data = array();
+    $data = array(
+      'menu' => array(
+        BASE_URL => 'Voltar'
+      ) 
+    );
     $p = new Products();
 
     if(!empty($_POST['cod'])) {
@@ -49,13 +59,15 @@ class homeController extends Controller {
 
   public function edit($id) {
     $data = array(
-      'msg' => ''
+      'menu' => array(
+        BASE_URL => 'Voltar'
+      ) 
     );
     $p = new Products();
 
     if(!empty($_POST['cod'])) {
       $cod = $_POST['cod'];
-      $name = $_POST['name'];
+      $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
       $price = $_POST['price'];
       $quantity = $_POST['quantity'];
       $min_quantity = $_POST['min_quantity'];
@@ -71,5 +83,4 @@ class homeController extends Controller {
     $this->loadTemplate('edit', $data);
     
   }
-  
 }

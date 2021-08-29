@@ -27,4 +27,8 @@ class loginController extends Controller {
     $this->loadTemplate('login', $data);
   }
 
+  public function sair() {
+    unset($_SESSION['token']);// Mata a sessão
+    header("Location: ".BASE_URL."login");// Volta para login
+  }
 }

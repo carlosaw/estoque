@@ -45,8 +45,7 @@ class Products extends Model {
   }
 
   public function editProduct($cod, $name, $price, $quantity, $min_quantity, $id) {
-    if($this->verifyProduct($cod)) {
-
+    
       $sql = "UPDATE products SET cod =:cod, name = :name, price = :price, quantity = :quantity, min_quantity = :min_quantity WHERE id = :id";
       $sql = $this->db->prepare($sql);
       $sql->bindValue(':cod', $cod);
@@ -57,9 +56,6 @@ class Products extends Model {
       $sql->bindValue(':id', $id);
       $sql->execute();
 
-    } else {
-      return false;
-    }
   }
 
   public function getProduct($id) {
