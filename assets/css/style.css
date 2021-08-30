@@ -86,3 +86,12 @@ input[type=submit]:hover{
   background-color: rgb(214, 211, 211);
   color: rgb(82, 80, 80);
 }
+
+.warning {
+  border: 1px solid #FF0000;
+  background-color: #FF5555;
+  padding: 10px;
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 10px;
+}

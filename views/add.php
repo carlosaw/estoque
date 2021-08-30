@@ -1,5 +1,9 @@
 <h3>Adicionar Produto</h3>
 
+<?php if(!empty($warning)): ?>
+  <div class="warning"><?php echo $warning; ?></div>
+<?php endif; ?>
+
 <form method="POST" class="form">
   <label>
     Código de Barras:<br/>
