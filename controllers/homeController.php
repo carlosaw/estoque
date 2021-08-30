@@ -18,6 +18,7 @@ class homeController extends Controller {
       'menu' => array(
         BASE_URL.'home/add' => 'Adicionar Produto',
         BASE_URL.'relatorio' => 'Relatório',
+        BASE_URL.'home/addBuy' => 'Adicionar Venda',
         BASE_URL.'login/sair' => 'Sair'
       )
     );
@@ -52,8 +53,11 @@ class homeController extends Controller {
       
       if($cod && $name && $price && $quantity && $min_quantity) {
         $p->addProduct($cod, $name, $price, $quantity, $min_quantity);
-        header("Location: ".BASE_URL);
-        exit;
+        
+        echo "<script>alert('Produto adicionado com sucesso!');</script>";
+        echo "<script> document.location.href = '/estoque'; </script>";
+        /*header("Location: ".BASE_URL);
+        exit;*/
       } else {
         $data['warning'] = 'Digite os campos corretamente!';
       }
@@ -80,9 +84,12 @@ class homeController extends Controller {
       
       if($cod && $name && $price && $quantity && $min_quantity) {
         $p->editProduct($cod, $name, $price, $quantity, $min_quantity, $id);
-     
-        header("Location: ".BASE_URL);
+
+        echo "<script>alert('Produto editado com sucesso!');</script>";
+        echo "<script> document.location.href = '/estoque'; </script>";
+        //header("Location: ".BASE_URL);
         exit;
+
       } else {
         $data['warning'] = 'Digite os campos corretamente!';
       }      
@@ -92,5 +99,34 @@ class homeController extends Controller {
 
     $this->loadTemplate('edit', $data);
     
+  }
+
+  public function addBuy() {
+    $data = array(
+      'menu' => array(
+        BASE_URL => 'Voltar'
+      ) 
+    );
+    $p = new Products();
+    $filters = new FiltersHelper();
+
+    if(!empty($_POST['cod_product'])) {
+      $cod_product = filter_input(INPUT_POST, 'cod_product', FILTER_VALIDATE_INT);
+      $qtde = $filters->filter_post_money('qtde');
+      
+      if($cod_product && $qtde) {
+        $p->addBuyProduct($cod_product, $qtde);
+        
+        echo "<script>alert('Venda efetuada com sucesso!');</script>";
+        echo "<script> document.location.href = 'addBuy'; </script>";
+        //header("Location: ".BASE_URL."home/addBuy");
+        //exit;
+        
+      } else {
+        $data['warning'] = 'Digite os campos corretamente!';
+      }
+    }
+
+    $this->loadTemplate('addBuy', $data);
   }
 }

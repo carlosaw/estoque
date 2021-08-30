@@ -44,6 +44,17 @@ class Products extends Model {
     }
   }
 
+  public function addBuyProduct($cod_product, $qtde) {
+
+    $sql = "INSERT INTO buys (cod_product, qtde)
+            VALUES(:cod_product, :qtde)";
+    $sql = $this->db->prepare($sql);
+    $sql->bindValue(':cod_product', $cod_product);
+    $sql->bindValue(':qtde', $qtde);
+    $sql->execute();
+      
+  }
+
   public function editProduct($cod, $name, $price, $quantity, $min_quantity, $id) {
     
       $sql = "UPDATE products SET cod =:cod, name = :name, price = :price, quantity = :quantity, min_quantity = :min_quantity WHERE id = :id";
@@ -55,7 +66,6 @@ class Products extends Model {
       $sql->bindValue(':min_quantity', $min_quantity);
       $sql->bindValue(':id', $id);
       $sql->execute();
-
   }
 
   public function getProduct($id) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Ago-2021 às 22:49
+-- Tempo de geração: 30-Ago-2021 às 20:59
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 7.4.13
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `estoque`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `buys`
+--
+
+CREATE TABLE `buys` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `cod_product` varchar(50) NOT NULL DEFAULT '',
+  `qtde` float NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `buys`
+--
+
+INSERT INTO `buys` (`id`, `cod_product`, `qtde`) VALUES
+(1, '1234', 1);
 
 -- --------------------------------------------------------
 
@@ -41,8 +60,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `cod`, `name`, `price`, `quantity`, `min_quantity`) VALUES
-(1, '07890012554', 'Produto de teste', 150, 18, 12),
-(2, '21474555', 'Produto 2', 123, 18, 20);
+(1, '1234', 'Produto de teste', 150, 15, 12),
+(2, '456', 'Produto 2', 123, 18, 20);
 
 -- --------------------------------------------------------
 
@@ -62,11 +81,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_number`, `user_pass`, `user_token`) VALUES
-(1, 123, '698dc19d489c4e4db73e28a713eab07b', '62402e3e6716cf1d1e1aa6a1b3060307');
+(1, 123, '698dc19d489c4e4db73e28a713eab07b', '16b67d5200bb1544d0e1efec12f07e0b');
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices para tabela `buys`
+--
+ALTER TABLE `buys`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices para tabela `products`
@@ -83,6 +108,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `buys`
+--
+ALTER TABLE `buys`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `products`
